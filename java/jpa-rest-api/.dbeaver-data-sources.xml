@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data-sources>
+	<data-source id="h2_server-169ee056283-2fc818f8cc726735" provider="generic" driver="h2_server" name="H2 - assignment4" save-password="true" show-system-objects="true" read-only="false">
+		<connection host="localhost" port="12345" server="" database="~/test;IFEXISTS=TRUE;MODE=MySQL;" url="jdbc:h2:tcp://localhost:12345/~/test;IFEXISTS=TRUE;MODE=MySQL;" user="sa" password="AwUVM1ZMVhJl8w==" type="dev"/>
+	</data-source>
+	<data-source id="h2_server-16a19dcda03-491a171cd8d19e2" provider="generic" driver="h2_server" name="H2 - assignment4-testing" save-password="true" show-system-objects="true" read-only="false">
+		<connection host="localhost" port="12345" server="" database="mem:assignment4-testing" url="jdbc:h2:tcp://localhost:12345/mem:assignment4-testing" user="sa" password="AwUVM1ZMVhJl8w==" type="dev"/>
+	</data-source>
+	<filters/>
+</data-sources>

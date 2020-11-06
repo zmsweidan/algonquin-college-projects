@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout android:layout_height="match_parent"  android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="quiz.MccMainActivity"
+        android:padding="15dp">
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></android.support.v7.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/mcc_main_header"
+            android:text="@string/mcc_main_label"
+            android:textColor="#070b15"
+            android:textSize="24dp"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/mcc_main_title"
+            android:text="@string/mcc_main_title"
+            android:gravity="center_horizontal"
+            android:textColor="#070b15"
+            android:textSize="20dp"
+            android:layout_below="@id/mcc_main_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"/>
+        <ListView
+            android:layout_below="@+id/mcc_main_title"
+            android:layout_above="@id/mcc_progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/mcc_list_view"
+            android:padding="5dp">
+        </ListView>
+        <TextView
+            android:id="@+id/mcc_main_no_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mcc_main_title"
+            android:text="@string/mcc_main_no_question"/>
+        <ImageButton
+            android:id="@+id/mcc_main_btn_add"
+            android:background="@drawable/mcc_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"/>
+
+        <ProgressBar
+            android:id="@+id/mcc_progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            style="?android:attr/progressBarStyleHorizontal" />
+
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

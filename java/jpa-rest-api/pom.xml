@@ -1,0 +1,145 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+    http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.algonquincollege.cst8277</groupId>
+  <artifactId>rest-demo-with-security</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>rest-demo-with-security</name>
+  <packaging>war</packaging>
+  <description>REST Demo with JEE 8 Security</description>
+
+  <!-- why is everything a property? Because hard-coded values become part of
+      Maven's immutable Model object and then their contents can't be changed.
+      However, if the value is set in a user-defined property BEFORE the Model
+      object is created, then it is possible to do: mvn clean compile -Dfoo.bar.version=1.2.3
+      in order to (say for example) test out a newer version of some dependency
+      without having to change the pom.xml.
+  -->
+  <properties>
+    <!-- maven properties -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.source.level>1.8</project.source.level>
+    <project.target.level>1.8</project.target.level>
+    <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
+    <failOnMissingWebXml>false</failOnMissingWebXml>
+    
+    <!-- code properties -->
+    <javaee.api.version>8.0</javaee.api.version>
+    <javaee.security.version>1.0</javaee.security.version>
+    <h2.version>1.4.197</h2.version>
+    <eclipse.microprofile.version>[1.0,2)</eclipse.microprofile.version>
+        <eclipselink.version>2.7.3</eclipselink.version>
+    
+     <javax.persistence.version>2.2</javax.persistence.version> 
+    <junit.version>4.12</junit.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>${javaee.api.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.microprofile.openapi</groupId>
+      <artifactId>microprofile-openapi-api</artifactId>
+      <version>${eclipse.microprofile.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.microprofile.config</groupId>
+      <artifactId>microprofile-config-api</artifactId>
+      <version>${eclipse.microprofile.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.soteria</groupId>
+      <artifactId>javax.security.enterprise</artifactId>
+      <version>${javaee.security.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>${h2.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>eclipselink</artifactId>
+      <version>${eclipselink.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.eclipse.persistence</groupId>
+          <artifactId>javax.persistence</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+     <dependency>
+      <groupId>javax.persistence</groupId>
+      <artifactId>javax.persistence-api</artifactId>
+      <version>${javax.persistence.version}</version>
+    </dependency>
+     
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven.compiler.plugin.version}</version>
+        <configuration>
+          <source>${project.source.level}</source>
+          <target>${project.target.level}</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.0.0</version>
+        <configuration>
+          <archive>
+            <addMavenDescriptor>false</addMavenDescriptor>
+          </archive>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M3</version>
+         <configuration>
+         <forkCount>1</forkCount>
+         <reuseForks>false</reuseForks>
+         <includes>
+           <include>**/*TestSuite.java</include>
+         </includes>
+         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>3.7.1</version>
+      </plugin>
+    </plugins>
+  </build>
+  
+   <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-report-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </reporting>
+
+</project>

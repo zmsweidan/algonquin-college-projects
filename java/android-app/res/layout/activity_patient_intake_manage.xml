@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="patient_intake.PatientIntakeManage"
+    android:layout_marginHorizontal="20dp">
+
+    <TextView
+        android:id="@+id/patient_patients_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/patient_manage_label"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:layout_margin="20dp"/>
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/patient_add"
+        android:layout_below="@+id/patient_patients_label" />
+
+    <Button
+        android:id="@+id/patient_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginVertical="10dp"
+        android:text="@string/patient_add" />
+
+
+</RelativeLayout>

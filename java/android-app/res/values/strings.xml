@@ -1,0 +1,78 @@
+<resources>
+    <string name="title">CST2335 - Final Group Project</string>
+    <string name="app_name">Final Group Project</string>
+
+    <string name="student_01_name">Multiple Choice Creator</string>
+    <string name="student_02_name">Student 02</string>
+    <string name="student_03_name">Patient Intake</string>
+    <string name="student_04_name">OCTranspo App</string>
+
+    <!-- PATIENT INTAKE -->
+        <!-- Start -->
+        <string name='patient_start_label'>Patient Intake Menu</string>
+        <string name='patient_start_form'>Add Patient</string>
+        <string name='patient_start_import'>Import Patients</string>
+        <string name='patient_start_manage'>Manage Patients</string>
+        <string name='patient_start_stats'>Patient Statistics</string>
+        <!-- Form -->
+        <string name='patient_form_label'>Patient Intake Form</string>
+        <string name='patient_name_label'>Name</string>
+        <string name='patient_address_label'>Address</string>
+        <string name='patient_birthday_label'>Birthday(DD/MM/YYYY)</string>
+        <string name='patient_phone_label'>Phone Number</string>
+        <string name='patient_card_label'>Health Card #</string>
+        <string name='patient_description_label'>Description</string>
+        <string name='patient_doctor_label'>Doctor</string>
+        <string name='patient_dentist_label'>Dentist</string>
+        <string name='patient_optometrist_label'>Optometrist</string>
+        <string name='patient_surgeries_label'>Previous Surgeries</string>
+        <string name='patient_allergies_label'>Allergies</string>
+        <string name='patient_braces_label'>Braces?</string>
+        <string name='patient_benefits_label'>Benefits</string>
+        <string name='patient_glassesdate_label'>Date Glasses Bought</string>
+        <string name='patient_store_label'>Store</string>
+        <string name='patient_form_submit'>Submit</string>
+        <string name='patient_add'>Add Patient</string>
+        <string name='patient_save'>Save</string>
+        <string name='patient_delete'>Delete</string>
+        <!-- Import -->
+        <string name='patient_import_label'>Import Patients From XML</string>
+        <string name='patient_xml_label'>XML Link</string>
+        <string name='patient_import_download'>Download</string>
+        <!-- Patients -->
+        <string name='patient_manage_label'>Manage Patients</string>
+        <!-- Statistics -->
+        <string name='patient_statistics_label'>Patient Statistics</string>
+        <string name='patient_minAge_label'>Minimum Age</string>
+        <string name='patient_maxAge_label'>Maximum Age</string>
+        <string name='patient_avgAge_label'>Average Age</string>
+    <!-- END OF PATIENT INTAKE -->
+
+
+    <!-- Multiple Choice Creator Strings - Prefix: mcc -->
+    <string name="mcc_main_label">Multiple Choice Quiz Creator</string>
+    <string name="mcc_main_title">Question List</string>
+    <string name="mcc_main_no_question">There is no question.</string>
+    <string name="mcc_main_add_button">Add Question</string>
+
+    <string name="mcc_question_add_edit">Question Add/Edit</string>
+    <string name="mcc_question_question">Question:</string>
+    <string name="mcc_question_type">Question type:</string>
+    <string name="mcc_question_multiple">Multiple Choices</string>
+    <string name="mcc_question_numeric">Numeric Answer</string>
+    <string name="mcc_question_delta">Delta:</string>
+    <string name="mcc_question_boolean">True/False</string>
+    <string name="mcc_question_options">Options:</string>
+    <string name="mcc_question_correct_answer">Correct answer:</string>
+    <string name="mcc_question_true">True</string>
+    <string name="mcc_question_false">False</string>
+    <string name="mcc_question_save">Save</string>
+    <string name="mcc_question_delete">Delete</string>
+    <string name="mcc_question_cancel">Cancel</string>
+
+    <!-- End Multiple Choice Creator Strings -->
+
+    <string name="ocb_search_button">Search</string>
+    <string name="ocb_search_hint">Bus Stop Number</string>
+    <string name="ocb_search_history_text">Search History</string>
+</resources>

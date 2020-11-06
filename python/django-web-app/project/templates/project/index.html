@@ -1,0 +1,57 @@
+<html lang="en">
+<!--
+	Title: index.html
+	Author: Zaid Sweidan
+-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <title>Phenology Data</title>
+</head>
+
+<div class="card card-accent-primary">
+  <div class="card-header">
+    Phenology Records by Zaid Sweidan
+    <a class="btn btn-success" href="{% url 'project:detail' 0 %}">Add</a>
+    <a class="btn btn-secondary" href="{% url 'project:reload' %}">Reload</a>
+  </div>
+
+  <div class="card-body">
+    <table class="table table-sm table-hover table-outline mb-0">
+      <thead class="table-secondary">
+        <tr>
+          {% for header in phenology_headings %}
+            <th><a href="?order_by={{ header.id }}">{{ header.label_en }}</a></th>
+          {% endfor %}
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in phenology_records %}
+          <tr>
+            <td>{{ row.pk }}</td>
+            <td>{{ row.species }}</td>
+            <td>{{ row.year }}</td>
+            <td>{{ row.julian_year }}</td>
+            <td>{{ row.plant_id }}</td>
+            <td>{{ row.num_buds }}</td>
+            <td>{{ row.num_flowers }}</td>
+            <td>{{ row.num_mature_flowers }}</td>
+            <td>{{ row.observer_initials }}</td>
+            <td>{{ row.observer_comments }}</td>
+          <td>
+            <a class="btn btn-primary" href="{% url 'project:detail' row.pk %}">Edit</a>
+          </td>
+          <td><a class="btn btn-danger" href="{% url 'project:delete' row.pk %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+</div>
+</html>
+

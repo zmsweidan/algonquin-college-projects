@@ -1,0 +1,78 @@
+<resources>
+    <string name="title">CST2335 - Projet de groupe final</string>
+    <string name="app_name">Projet de groupe final</string>
+
+    <string name="student_01_name">Créateur à choix multiple</string>
+    <string name="student_02_name">Student 02</string>
+    <string name="student_03_name">Student 03</string>
+    <string name="student_04_name">App OCTranspo</string>
+
+    <!-- PATIENT INTAKE -->
+        <!-- Start -->
+        <string name='patient_start_label'>Menu d\'admission des patients</string>
+        <string name='patient_start_form'>Remplir le formulaire</string>
+        <string name='patient_start_import'>Importer des patients</string>
+        <string name='patient_start_manage'>Gérer les patients</string>
+        <string name='patient_start_stats'>Statistiques sur les patients</string>
+        <!-- Form -->
+        <string name='patient_form_label'>Formulaire d\'admission des patients</string>
+        <string name='patient_name_label'>Nom</string>
+        <string name='patient_address_label'>Adresse</string>
+        <string name='patient_birthday_label'>Anniversaire(DD/MM/YYYY)</string>
+        <string name='patient_phone_label'>Numéro de téléphone</string>
+        <string name='patient_card_label'>Carte Santé #</string>
+        <string name='patient_description_label'>Description</string>
+        <string name='patient_doctor_label'>Docteur</string>
+        <string name='patient_dentist_label'>Dentiste</string>
+        <string name='patient_optometrist_label'>Optométriste</string>
+        <string name='patient_surgeries_label'>Chirurgies précédentes</string>
+        <string name='patient_allergies_label'>Allergies</string>
+        <string name='patient_braces_label'>Accolades?</string>
+        <string name='patient_benefits_label'>Avantages</string>
+        <string name='patient_glassesdate_label'>Lunettes de date achetées</string>
+        <string name='patient_store_label'>Store</string>
+        <string name='patient_form_submit'>Soumettre</string>
+        <string name='patient_add'>Ajouter des Patients</string>
+        <string name='patient_save'>Enregistrer</string>
+        <string name='patient_delete'>Effacer</string>
+        <!-- Import -->
+        <string name='patient_import_label'>Importer des patients à partir de XML</string>
+        <string name='patient_xml_label'>XML Lien </string>
+        <string name='patient_import_download'>Télécharger</string>
+        <!-- Manage -->
+        <string name='patient_manage_label'>Gérer les Patients</string>
+        <!-- Statistics -->
+        <string name='patient_statistics_label'>Statistiques des Patients</string>
+        <string name='patient_minAge_label'>Âge Minimum</string>
+        <string name='patient_maxAge_label'>Âge maximum</string>
+        <string name='patient_avgAge_label'>Âge Moyen</string>
+    <!-- END OF PATIENT INTAKE -->
+
+
+    <!-- Multiple Choice Creator Strings - Prefix: mcc -->
+    <string name = "mcc_main_label">Créateur de quiz à choix multiple</string>
+    <string name = "mcc_main_title">Liste des questions</string>
+    <string name = "mcc_main_no_question">Il n\'y a pas de question.</string>
+    <string name = "mcc_main_add_button">Ajouter une question</string>
+
+    <string name = "mcc_question_add_edit">Ajouter une question/Modifier</string>
+    <string name = "mcc_question_question">Question:</string>
+    <string name = "mcc_question_type">Type de question:</string>
+    <string name = "mcc_question_multiple">Choix multiples </string>
+    <string name = "mcc_question_numeric">numérique</string>
+    <string name = "mcc_question_delta">Delta:</string>
+    <string name = "mcc_question_boolean">Vrai/Faux</string>
+    <string name = "mcc_question_options">Options:</string>
+    <string name = "mcc_question_correct_answer">Bonne réponse:</string>
+    <string name = "mcc_question_true">Vrai</string>
+    <string name = "mcc_question_false">Faux</string>
+    <string name = "mcc_question_save">Enregistrer</string>
+    <string name = "mcc_question_delete">Supprimer</string>
+    <string name = "mcc_question_cancel">Annuler</string>
+
+    <!-- End Multiple Choice Creator Strings -->
+
+    <string name = "ocb_search_button">Recherche</string>
+    <string name = "ocb_search_hint">Numéro d\'arrêt de bus</string>
+    <string name = "ocb_search_history_text">Historique de recherche</string>
+</resources>

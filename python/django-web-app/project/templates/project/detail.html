@@ -1,0 +1,74 @@
+<html lang="en">
+<!--
+	Title: detail.html
+	Author: Zaid Sweidan
+-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <title>Phenology Data</title>
+</head>
+
+<div class="card card-accent-primary">
+
+  <form action="{% url 'project:save' selectedRecord.pk %}" method="post">{% csrf_token %}
+  <div class="card-header">
+    {% if selectedRecord.pk == 0 %}
+      New Record</strong> by Zaid Sweidan
+      <input type="submit" value="Add" class="btn btn-success">
+    {% else %}
+      Detail View for <strong>Id={{selectedRecord.pk}}</strong> by Zaid Sweidan
+      <input type="submit" value="Save" class="btn btn-success">
+    {% endif %}
+    <a class="btn btn-secondary" href="{% url 'project:index'%}">Back</a>
+  </div>
+
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-4">
+        <strong><label>{{ phenology_headings.1.label_en }}</label></strong>
+        <input type="text" value="{{selectedRecord.species}}" id="species" name="species" class="form-control">
+      </div>
+      <div class="col-md-2">
+        <strong><label>{{ phenology_headings.2.label_en }}</label></strong>
+        <input type="number" value="{{selectedRecord.year}}" id="year" name="year" class="form-control"></div>
+      <div class="col-md-2">
+        <strong><label>{{ phenology_headings.3.label_en }}</label></strong>
+        <input type="number" value="{{selectedRecord.julian_year}}" id="julian_year" name="julian_year" class="form-control">
+      </div>
+      <div class="col-md-2">
+        <strong><label>{{ phenology_headings.4.label_en }}</label></strong>
+        <input type="text" value="{{selectedRecord.plant_id}}" id="plant_id" name="plant_id" class="form-control">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-2">
+        <strong><label>{{ phenology_headings.5.label_en }}</label></strong>
+        <input type="number" value="{{selectedRecord.num_buds}}" id="num_buds" name="num_buds" class="form-control">
+      </div>
+      <div class="col-md-2">
+        <strong><label>{{ phenology_headings.6.label_en }}</label></strong>
+        <input type="number" value="{{selectedRecord.num_flowers}}" id="num_flowers" name="num_flowers" class="form-control">
+      </div>
+      <div class="col-md-3">
+        <strong><label>{{ phenology_headings.7.label_en }}</label></strong>
+        <input type="number" value="{{selectedRecord.num_mature_flowers}}" id="num_mature_flowers" name="num_mature_flowers" class="form-control">
+      </div>
+      <div class="col-md-2">
+        <strong><label>{{ phenology_headings.8.label_en }}</label></strong>
+        <input type="text" value="{{selectedRecord.observer_initials}}" id="observer_initials" name="observer_initials" class="form-control">
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <strong><label>{{ phenology_headings.9.label_en }}</label></strong>
+    <textarea rows="5" value="{{selectedRecord.observer_comments}}" id="observer_comments" name="observer_comments" class="form-control"></textarea>
+  </div>
+  </form>
+
+</div>
+</html>
+

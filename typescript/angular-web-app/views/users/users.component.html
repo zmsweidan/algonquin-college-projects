@@ -1,0 +1,288 @@
+<div class="animated fadeIn">
+
+  <!-- ADD/EDIT USER -->
+  <div class="card card-accent-primary" id="addCard" [hidden]="!newEntryFlag">
+
+    <div class="card-header">
+      <h6>
+        <i class="fa fa-edit" aria-label="Edit"></i> {{updateSelected ? ('manage.update' | translate) : ('manage.add' |
+        translate)}} {{'users.user' | translate}}</h6>
+    </div>
+
+    <!-- FORM FIELDS -->
+    <div class="card-body">
+      <input type="hidden" name="selectedUser.id" [(ngModel)]="selectedUser.id" />
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6">
+            <strong>
+              <label>{{'users.email' | translate}}</label>
+            </strong>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="fa fa-at" aria-label="Email"></i>
+                </span>
+              </div>
+              <input type="email" name="selectedUser.email" class="form-control" placeholder="{{'placeholder.email' | translate}}"
+                [(ngModel)]="selectedUser.email" required [disabled]="selectedUser.id">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <strong>
+              <label>{{'login.password' | translate}}</label>
+            </strong>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="fa fa-code" aria-label="Password"></i>
+                </span>
+              </div>
+              <input type="password" name="selectedUser.password" class="form-control" placeholder="{{'placeholder.password' | translate}}"
+                [(ngModel)]="selectedUser.password" required [disabled]="selectedUser.id">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6">
+            <strong>
+              <label>{{'users.firstName' | translate}}</label>
+            </strong>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="fa fa-user" aria-label="First Name"></i>
+                </span>
+              </div>
+              <input type="text" name="selectedUser.firstName" class="form-control" placeholder="{{'placeholder.firstName' | translate}}"
+                [(ngModel)]="selectedUser.firstName"  required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <strong>
+              <label>{{'users.lastName' | translate}}</label>
+            </strong>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="fa fa-user" aria-label="Last Name"></i>
+                </span>
+              </div>
+              <input type="text" name="selectedUser.lastName" class="form-control" placeholder="{{'placeholder.lastName' | translate}}"
+                [(ngModel)]="selectedUser.lastName"  required>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6">
+            <strong>
+              <label>{{'users.phone' | translate}}</label>
+            </strong>
+            <span class="note"> (123-456-7890) </span>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="fa fa-hashtag" aria-label="Phone"></i>
+                </span>
+              </div>
+              <input type="tel" name="selectedUser.phone" class="form-control" placeholder="{{'placeholder.phone' | translate}}"
+                [(ngModel)]="selectedUser.phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <strong>
+            <label>{{'users.role' | translate}}</label>
+          </strong>
+          <app-ngx-select [placeholder]="'placeholder.role'" [model]="selectedUser.roleId" [items]="roles" [id]="'id'"
+            [fieldId]="'id'" [fieldNameEn]="'nameEn'" [fieldNameFr]="'nameFr'" [selectedLang]="selectedLang" 
+            (modelChanged)="selectedUser.roleId=$event" required>
+          </app-ngx-select>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <strong>
+              <label>{{'labels.status' | translate}}</label>
+            </strong>
+            <br />
+            <label class="switch switch-3d switch-primary">
+              <input type="checkbox" class="switch-input" [(ngModel)]="selectedUser.active" checked>
+              <span class="switch-label"></span>
+              <span class="switch-handle"></span>
+            </label>&nbsp;&nbsp;&nbsp;Active
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORM CONTROLS-->
+    <div class="card-footer">
+      <div class="btn-group float-left" aria-label="Add">
+        <button *ngIf="!updateSelected" type="submit" [disabled]="isInvalid()" class="btn btn-primary active"
+          (click)="create()">
+          <i class="fa fa-plus" aria-label="Create"></i> {{'btn_elements.create' | translate}}</button>
+        <button *ngIf="updateSelected" [disabled]="isInvalid()" type="submit" class="btn btn-primary active"
+          (click)="update()">
+          <i class="fa fa-edit" aria-label="Edit"></i> {{'btn_elements.update' | translate}}</button>
+        &nbsp;
+        <button type="button" (click)="resetAll()" class="btn btn-outline-primary" aria-label="Clear">
+          <i class="fa fa-refresh" aria-label="Refresh"></i> {{'btn_elements.clear' | translate}}</button>
+      </div>
+      <div class="btn-group float-right" aria-label="Close">
+        <button type="button" class="btn btn-outline-primary" (click)="close()" aria-label="Close">
+          <i class="fa fa-close" aria-label="Close"></i>&nbsp;{{'btn_elements.close' | translate}}</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADD USER BUTTON -->
+  <div class="card card-accent-primary">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-md-8">
+          <h6>
+            <i class="icon-pie-chart" aria-label="Pie Chart"></i> {{'users.users' | translate}} ({{users.length}})
+          </h6>
+        </div>
+        <div class="col-md-4">
+          <div class="btn-group float-right" aria-label="Add New" [hidden]="newEntryFlag">
+            <button type="button" class="btn btn-primary" (click)="addEntry()" aria-label="Add New" [disabled]="userRoleId !== 1">
+              <i class="fa fa-plus" aria-label="Create"></i>&nbsp;{{'btn_elements.add' | translate}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- USER TABLE -->
+    <div class="card-body">
+      <div class="form-group">
+        <div class="input-group">
+          <input type="search" id="input1-group1" name="input1-group2" class="search form-control" placeholder="{{'placeholder.search' | translate}}"
+            [(ngModel)]="searchText">
+          <span class="input-group-text">
+            <i class="fa fa-search" aria-label="Search Users"></i>
+          </span>
+        </div>
+      </div>
+      <table class="table table-responsive-sm table-hover table-outline mb-0">
+        <thead class="table-secondary">
+          <tr>
+            <th class="clickable" (click)="sort('email')">{{'users.email' | translate}}
+                <i class="fa" [ngClass]="{'fa-sort': column != 'email', 'fa-sort-asc': (column == 'email' && !isDesc),
+                              'fa-sort-desc': (column == 'email' && isDesc) }"
+                  aria-hidden="true"></i>
+              </th>
+            <th class="clickable" (click)="sort('firstName')">{{'users.firstName' | translate}}
+              <i class="fa" [ngClass]="{'fa-sort': column != 'firstName', 'fa-sort-asc': (column == 'firstName' && !isDesc),
+                            'fa-sort-desc': (column == 'firstName' && isDesc) }"
+                aria-hidden="true"></i>
+            </th>
+            <th class="clickable" (click)="sort('lastName')">{{'users.lastName' | translate}}
+              <i class="fa" [ngClass]="{'fa-sort': column != 'lastName', 'fa-sort-asc': (column == 'lastName' && !isDesc),
+                            'fa-sort-desc': (column == 'lastName' && isDesc) }"
+                aria-hidden="true"></i>
+            </th>
+            <th class="clickable" (click)="sort('phone')">{{'users.phone' | translate}}
+              <i class="fa" [ngClass]="{'fa-sort': column != 'phone', 'fa-sort-asc': (column == 'phone' && !isDesc),
+                            'fa-sort-desc': (column == 'phone' && isDesc) }"
+                aria-hidden="true"></i>
+            </th>
+            <th class="clickable" (click)="sort('role')">{{'users.role' | translate}}
+              <i class="fa" [ngClass]="{'fa-sort': column != 'role', 'fa-sort-asc': (column == 'role' && !isDesc),
+                            'fa-sort-desc': (column == 'role' && isDesc) }"
+                aria-hidden="true"></i>
+            </th>
+            <th class="clickable" (click)="sort('active')">{{'users.active' | translate}}
+              <i class="fa" [ngClass]="{'fa-sort': column != 'active', 'fa-sort-asc': (column == 'active' && !isDesc),
+                            'fa-sort-desc': (column == 'active' && isDesc) }"
+                aria-hidden="true"></i>
+            </th>
+            <th style="width: 10%; text-align:center">
+              <i class="fa fa-cog" aria-label="Manage"></i>
+            </th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users | filter : searchText | orderBy: {property: column, direction: direction} | paginate: { itemsPerPage: ipp, currentPage: cp }; let i = index;">
+            <td>{{ user.email }}</td>
+            <td>{{ user.firstName }}</td>
+            <td>{{ user.lastName }}</td>
+            <td>{{ user.phone }}</td>
+            <td>{{ getRoleDesc(user.roleId) }}</td>
+            <td>
+              <span *ngIf="user.active"><i style="color: green" class="fa fa-check green"></i></span>
+              <span *ngIf="!user.active"><i style="color: red" class="fa fa-times clickable red"></i></span>
+            </td>
+            <td style="text-align:center">
+              <div ngbDropdown placement="bottom-center" class="d-inline-block">
+                <button id="dropdownBasic1" class="dropbtn btn btn-sm btn-outline-primary dropdown-toggle"
+                  ngbDropdownToggle [disabled]="userRoleId !== 1">
+                  <i class="fa fa-cog" aria-label="Manage"></i>
+                  <span class="caret"></span>
+                </button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <button class="dropdown-item" title="Edit" (click)="editEntry(user)">
+                    <i style="color: orange" class="fa fa-pencil clickable orange"></i>{{ 'btn_elements.edit' |
+                    translate }}</button>
+                  <button class="dropdown-item " title="Delete" (click)="setUserToDelete(user); removeModal.show()">
+                    <i style="color: red" class="fa fa-trash-o clickable red"></i>{{ 'btn_elements.remove' | translate
+                    }}</button>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr *ngIf="(users | filter : searchText).length < 1">
+            <td *ngIf="!loading;else spin" colspan="5">{{'placeholder.no_results' | translate}}</td>
+            <ng-template #spin>
+              <td colspan="5"> {{'placeholder.loading' | translate}}
+                <i class="fa fa-spinner fa-spin" aria-label="Loading"></i>
+              </td>
+            </ng-template>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pagination-footer">
+      <pagination class="justify-content-center" [boundaryLinks]="true" [totalItems]="(users | filter: searchText).length"
+        [(ngModel)]="cp" [maxSize]="maxSize" [itemsPerPage]="ipp" (pageChanged)="cp=$event" firstText="&laquo;"
+        lastText="&raquo;"></pagination>
+    </div>
+
+  </div>
+</div>
+
+<!-- MODALS -->
+<div bsModal #removeModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Remove Modal"
+  aria-hidden="true">
+  <div class="modal-dialog modal-danger" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">{{'modal_elements.title' | translate }}</h4>
+        <button type="button" class="close" (click)="removeModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>{{'modal_elements.message' | translate }} {{selectedUserToDelete.firstName}} {{selectedUserToDelete.lastName}}
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary" (click)="removeModal.hide();" aria-label="Cancel">{{'modal_elements.cancel'
+          | translate }}</button>
+        <button type="button" class="btn btn-danger" (click)="delete();removeModal.hide()" aria-label="Remove">{{'modal_elements.remove'
+          | translate }}</button>
+      </div>
+    </div>
+  </div>
+</div>

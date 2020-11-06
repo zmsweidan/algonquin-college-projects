@@ -1,0 +1,15 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="android:Theme.Material.Light.DarkActionBar">
+    </style>
+
+    <style name="OcBusTheme" parent="android:Theme.Material.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/OcBusActionBar</item>
+    </style>
+
+    <style name="OcBusActionBar" parent="android:Widget.ActionBar">
+        <item name="android:background">@drawable/octranspo_red_small</item>
+    </style>
+
+</resources>

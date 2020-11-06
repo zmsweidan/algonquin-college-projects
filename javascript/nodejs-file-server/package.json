@@ -1,0 +1,23 @@
+{
+  "name": "nodejs-file-server",
+  "version": "1.0.0",
+  "description": "Node.js File Server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "nodemonConfig": {
+    "ignore": []
+  },
+  "author": "Zaid Sweidan",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^4.17.1",
+    "multer": "^1.4.2",
+    "fs-extra": "^9.0.1",
+    "oracledb": "^5.0.0"
+  },
+  "engines": {
+    "node": ">= 10.0.0"
+  }
+}
